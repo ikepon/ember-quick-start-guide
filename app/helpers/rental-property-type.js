@@ -1,7 +1,17 @@
 import Ember from 'ember';
 
-export function rentalPropertyType(params/*, hash*/) {
-  return params;
+const commnunityPropertyTypes = [
+  'Condo',
+  'Townhouse',
+  'Apartment'
+];
+
+export function rentalPropertyType([type]/*, hash*/) {
+  if (commnunityPropertyTypes.contains(type)) {
+    return 'Community';
+  }
+
+  return 'Standalone';
 }
 
 export default Ember.Helper.helper(rentalPropertyType);
